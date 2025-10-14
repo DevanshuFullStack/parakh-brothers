@@ -129,7 +129,7 @@ const ProductLines = () => {
               fontSize: { xs: '2rem', md: '3rem' },
             }}
           >
-            Our Product Lines
+            Best Hardware & Paint Shop Products in Mandsaur
           </Typography>
           <Typography
             variant="h6"
@@ -138,9 +138,24 @@ const ProductLines = () => {
               maxWidth: '800px',
               mx: 'auto',
               lineHeight: 1.6,
+              mb: 2,
             }}
           >
-            Quality products from trusted brands for all your needs
+            Premium paints, putty, tools, chemicals & pesticides from trusted brands in Mandsaur
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: '#777',
+              maxWidth: '900px',
+              mx: 'auto',
+              lineHeight: 1.6,
+              fontSize: '1.1rem',
+            }}
+          >
+            Parakh Brothers offers the widest range of branded paints, hardware tools, welding equipment, 
+            industrial chemicals, and agricultural pesticides in Mandsaur. We are authorized dealers of 
+            Asian Paints, Kansai Nerolac, Berger Paints, JK Putty, Taparia Tools and many more top brands.
           </Typography>
         </Box>
 

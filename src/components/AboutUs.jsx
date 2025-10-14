@@ -143,7 +143,7 @@ const AboutUs = () => {
               lineHeight: 1.6,
             }}
           >
-            Pioneer since 1965 and the most trusted name in field of paints in Mandsaur district
+            Pioneer since 1965 and the most trusted hardware & paint shop in Mandsaur district
           </Typography>
         </Box>
 
@@ -303,10 +303,7 @@ const AboutUs = () => {
                 color: '#444',
               }}
             >
-              Parakh Brothers is the pioneer since 1965 and the most trusted name in field of paints 
-              in Mandsaur district. We were the beginners of branded wall paints in the town and have 
-              been part of platinum and diamond core group of Kansai Nerolac paints, Taparia tools, 
-              JK putty and many more.
+              Parakh Brothers is the leading hardware and paint shop in Mandsaur since 1965, serving as the most trusted supplier of paints, putty, tools, chemicals, and pesticides in Mandsaur district. We were the pioneers of branded wall paints in Mandsaur and have been part of platinum and diamond core group of Kansai Nerolac paints, Asian Paints, Berger Paints, Taparia tools, JK putty and many more top brands.
             </Typography>
             <Typography
               variant="body1"
@@ -316,9 +313,7 @@ const AboutUs = () => {
                 color: '#444',
               }}
             >
-              We have a history of trusted family run business over 3 generations, coloring the town 
-              in its colors. We deal in retail and wholesale of Paints, tools, chemicals and pesticides 
-              for the last 60 years.
+              Our family-run hardware store in Mandsaur has been serving the community for over 3 generations, providing quality paints, construction tools, agricultural chemicals, and pesticides across Mandsaur and nearby areas. We offer both retail and wholesale services, making us the preferred choice for contractors, farmers, and homeowners in Mandsaur district.
             </Typography>
             <Typography
               variant="body1"
@@ -327,8 +322,7 @@ const AboutUs = () => {
                 color: '#444',
               }}
             >
-              From a small shop to becoming synonymous with branded trusted painting solution providers, 
-              our journey has been marked by sheer hard work and customer goodwill built over the years.
+              From a small paint shop to becoming Mandsaur's most trusted hardware and paint dealer, our journey reflects 60 years of dedication to quality products and customer satisfaction. Today, we are recognized as the best hardware shop in Mandsaur for genuine products and competitive prices.
             </Typography>
           </Grid>
           
