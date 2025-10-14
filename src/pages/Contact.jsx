@@ -10,6 +10,8 @@ import {
   Button,
   Alert,
   Snackbar,
+  Divider,
+  Chip,
 } from '@mui/material'
 import {
   Phone,
@@ -18,6 +20,10 @@ import {
   WhatsApp,
   Business,
   AccessTime,
+  Palette,
+  CameraAlt,
+  Home,
+  Psychology,
 } from '@mui/icons-material'
 
 const Contact = () => {
@@ -71,6 +77,31 @@ ${formData.name}`
     })
   }
 
+  const handleColorConsultation = () => {
+    const consultationMessage = `Hello Parakh Brothers,
+
+I would like to get personalized color consultation and guidance for my home/project.
+
+Services I'm interested in:
+✅ Color combination suggestions
+✅ Paint type recommendations
+✅ Professional color matching
+✅ Home painting guidance
+
+I will share photos of my space for better recommendations.
+
+Please guide me with the best color solutions.
+
+Thank you!`
+
+    const encodedMessage = encodeURIComponent(consultationMessage)
+    const whatsappNumber = '919826668789'
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`
+    
+    window.open(whatsappUrl, '_blank')
+    setShowAlert(true)
+  }
+
   const contactInfo = [
     {
       icon: <Phone />,
@@ -89,6 +120,12 @@ ${formData.name}`
       title: 'Email',
       details: ['rajeshparikh3010@gmail.com'],
       action: () => window.open('mailto:rajeshparikh3010@gmail.com'),
+    },
+    {
+      icon: <Palette />,
+      title: 'Color Consultation',
+      details: ['Get personalized color advice', 'Share photos for recommendations'],
+      action: handleColorConsultation,
     },
     {
       icon: <LocationOn />,
@@ -141,7 +178,7 @@ ${formData.name}`
 
         <Grid container spacing={4}>
           {/* Contact Information */}
-          <Grid item xs={12} md={6}>
+          <Grid item size={{ xs: 12, md: 6 }}>
             <Typography
               variant="h4"
               sx={{
@@ -155,7 +192,7 @@ ${formData.name}`
 
             <Grid container spacing={3}>
               {contactInfo.map((info, index) => (
-                <Grid item xs={12} sm={6} key={index}>
+                <Grid item size={{ xs: 12, sm: 6 }} key={index}>
                   <Card
                     sx={{
                       height: '100%',
@@ -209,7 +246,7 @@ ${formData.name}`
           </Grid>
 
           {/* Contact Form */}
-          <Grid item xs={12} md={6}>
+          <Grid item size={{ xs: 12, md: 6 }}>
             <Card>
               <CardContent sx={{ p: 4 }}>
                 <Typography
@@ -226,7 +263,7 @@ ${formData.name}`
 
                 <Box component="form" onSubmit={handleSubmit}>
                   <Grid container spacing={3}>
-                    <Grid item xs={12} sm={6}>
+                    <Grid item size={{ xs: 12, sm: 6 }}>
                       <TextField
                         fullWidth
                         required
@@ -237,7 +274,7 @@ ${formData.name}`
                         variant="outlined"
                       />
                     </Grid>
-                    <Grid item xs={12} sm={6}>
+                    <Grid item size={{ xs: 12, sm: 6 }}>
                       <TextField
                         fullWidth
                         required
@@ -249,7 +286,7 @@ ${formData.name}`
                         variant="outlined"
                       />
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item size={12}>
                       <TextField
                         fullWidth
                         label="Email Address"
@@ -260,7 +297,7 @@ ${formData.name}`
                         variant="outlined"
                       />
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item size={12}>
                       <TextField
                         fullWidth
                         required
@@ -271,7 +308,7 @@ ${formData.name}`
                         variant="outlined"
                       />
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item size={12}>
                       <TextField
                         fullWidth
                         required
@@ -285,7 +322,7 @@ ${formData.name}`
                         placeholder="Tell us about your requirements, project details, or any questions you have..."
                       />
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item size={12}>
                       <Button
                         type="submit"
                         fullWidth
@@ -327,6 +364,127 @@ ${formData.name}`
           </Grid>
         </Grid>
 
+        {/* Personalized Services Section */}
+        <Box sx={{ mt: 6 }}>
+          <Typography
+            variant="h4"
+            sx={{
+              fontWeight: 'bold',
+              mb: 4,
+              color: '#1976d2',
+              textAlign: 'center',
+            }}
+          >
+            Get Personalized Guidance & Color Solutions
+          </Typography>
+
+          <Grid container spacing={4}>
+            {/* Color Consultation Service */}
+            <Grid item size={12}>
+              <Card
+                sx={{
+                  height: '100%',
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  color: 'white',
+                }}
+              >
+                <CardContent sx={{ p: 4 }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                    <Palette sx={{ fontSize: 40, mr: 2 }} />
+                    <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
+                      Color Consultation
+                    </Typography>
+                  </Box>
+                  
+                  <Typography variant="body1" sx={{ mb: 3, lineHeight: 1.6 }}>
+                    Share photos of your home and get expert color recommendations tailored to your space, lighting, and preferences.
+                  </Typography>
+
+                  <Box sx={{ mb: 3 }}>
+                    <Typography variant="h6" sx={{ mb: 2, fontWeight: 'bold' }}>
+                      What We Offer:
+                    </Typography>
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 2 }}>
+                      <Chip label="Color Combinations" sx={{ backgroundColor: 'rgba(255,255,255,0.2)', color: 'white' }} />
+                      <Chip label="Paint Type Selection" sx={{ backgroundColor: 'rgba(255,255,255,0.2)', color: 'white' }} />
+                      <Chip label="Room-wise Suggestions" sx={{ backgroundColor: 'rgba(255,255,255,0.2)', color: 'white' }} />
+                      <Chip label="Lighting Considerations" sx={{ backgroundColor: 'rgba(255,255,255,0.2)', color: 'white' }} />
+                    </Box>
+                  </Box>
+
+                  <Button
+                    fullWidth
+                    variant="contained"
+                    startIcon={<WhatsApp />}
+                    onClick={handleColorConsultation}
+                    sx={{
+                      backgroundColor: '#25D366',
+                      color: 'white',
+                      py: 2,
+                      fontSize: '1.1rem',
+                      '&:hover': {
+                        backgroundColor: '#1DA851',
+                      },
+                    }}
+                  >
+                    Start Color Consultation
+                  </Button>
+                </CardContent>
+              </Card>
+            </Grid>
+
+            {/* How to Share Photos */}
+            <Grid item size={12}>
+              <Card sx={{ height: '100%' }}>
+                <CardContent sx={{ p: 4 }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                    <CameraAlt sx={{ fontSize: 40, mr: 2, color: '#1976d2' }} />
+                    <Typography variant="h5" sx={{ fontWeight: 'bold', color: '#1976d2' }}>
+                      How to Share Photos
+                    </Typography>
+                  </Box>
+
+                  <Box sx={{ mb: 3 }}>
+                    <Typography variant="body1" sx={{ mb: 2, color: '#666' }}>
+                      For the best color recommendations, please share:
+                    </Typography>
+                    
+                    <Box sx={{ pl: 2 }}>
+                      <Typography variant="body2" sx={{ mb: 1, display: 'flex', alignItems: 'center' }}>
+                        <Home sx={{ fontSize: 16, mr: 1, color: '#1976d2' }} />
+                        Exterior and interior photos
+                      </Typography>
+                      <Typography variant="body2" sx={{ mb: 1, display: 'flex', alignItems: 'center' }}>
+                        <Psychology sx={{ fontSize: 16, mr: 1, color: '#1976d2' }} />
+                        Room dimensions and lighting
+                      </Typography>
+                      <Typography variant="body2" sx={{ mb: 1, display: 'flex', alignItems: 'center' }}>
+                        <Palette sx={{ fontSize: 16, mr: 1, color: '#1976d2' }} />
+                        Existing furniture and décor
+                      </Typography>
+                      <Typography variant="body2" sx={{ mb: 1, display: 'flex', alignItems: 'center' }}>
+                        <CameraAlt sx={{ fontSize: 16, mr: 1, color: '#1976d2' }} />
+                        Different angles of the space
+                      </Typography>
+                    </Box>
+                  </Box>
+
+                  <Divider sx={{ my: 2 }} />
+
+                  <Box sx={{ backgroundColor: '#f5f5f5', p: 2, borderRadius: 1 }}>
+                    <Typography variant="body2" sx={{ fontWeight: 'bold', mb: 1 }}>
+                      💡 Pro Tip:
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: '#666' }}>
+                      Take photos during different times of the day to show how natural light affects your space. This helps us recommend colors that look great in all lighting conditions.
+                    </Typography>
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
+          </Grid>
+        </Box>
+
         {/* Additional Information */}
         <Box
           sx={{
@@ -342,7 +500,7 @@ ${formData.name}`
             Why Choose Parakh Brothers?
           </Typography>
           <Grid container spacing={4}>
-            <Grid item xs={12} md={3}>
+            <Grid item size={{ xs: 12, md: 3 }}>
               <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
                 60+ Years Experience
               </Typography>
@@ -350,7 +508,7 @@ ${formData.name}`
                 Trusted since 1965
               </Typography>
             </Grid>
-            <Grid item xs={12} md={3}>
+            <Grid item size={{ xs: 12, md: 3 }}>
               <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
                 Premium Brands
               </Typography>
@@ -358,7 +516,7 @@ ${formData.name}`
                 Authorized dealers
               </Typography>
             </Grid>
-            <Grid item xs={12} md={3}>
+            <Grid item size={{ xs: 12, md: 3 }}>
               <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
                 Expert Consultation
               </Typography>
@@ -366,7 +524,7 @@ ${formData.name}`
                 Professional advice
               </Typography>
             </Grid>
-            <Grid item xs={12} md={3}>
+            <Grid item size={{ xs: 12, md: 3 }}>
               <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
                 Competitive Prices
               </Typography>
@@ -374,12 +532,20 @@ ${formData.name}`
                 Best market rates
               </Typography>
             </Grid>
-              <Grid item xs={12} md={3}>
+            <Grid item size={{ xs: 12, md: 3 }}>
               <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
                 One-Stop Shop
               </Typography>
               <Typography variant="body2" sx={{ opacity: 0.9 }}>
                 All your hardware needs under one roof
+              </Typography>
+            </Grid>
+            <Grid item size={{ xs: 12, md: 3 }}>
+              <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+                Color Expertise
+              </Typography>
+              <Typography variant="body2" sx={{ opacity: 0.9 }}>
+                Personalized color solutions
               </Typography>
             </Grid>
           </Grid>

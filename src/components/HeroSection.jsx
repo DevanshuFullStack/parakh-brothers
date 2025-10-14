@@ -197,7 +197,7 @@ const HeroSection = () => {
       
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         <Grid container spacing={4} alignItems="center">
-          <Grid item xs={12} md={8}>
+          <Grid item size={{ xs: 12, md: 8 }}>
             <Animated.div style={fadeIn}>
               <Typography
                 variant="h2"
@@ -301,8 +301,8 @@ const HeroSection = () => {
               </Box>
             </Animated.div>
           </Grid>
-          
-          <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: 'center', flex: { xs: 'auto', sm: 'auto', md: 'auto' } }}>
+
+          <Grid item size={{ xs: 12, md: 4 }} sx={{ display: 'flex', justifyContent: 'center', flex: { xs: 'auto', sm: 'auto', md: 'auto' } }}>
             <Animated.div style={logoAnimation}>
               <Box
                 sx={{

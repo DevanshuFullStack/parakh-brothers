@@ -39,7 +39,7 @@ const Team = () => {
       image: varunImg,
       description:
         "Son of Shree Naresh ji Parakh, the young blood/Gen-Z of the business has been trained and groomed under the seniors well. He creates a good link between modernizing competition and evolving business landscape.",
-      expertise: [],
+      expertise: ["Modernization"],
       generation: "3rd Generation",
     },
   ];
@@ -84,7 +84,7 @@ const Team = () => {
           >
             <CardContent sx={{ p: 4 }}>
               <Grid container spacing={4} alignItems="center">
-                <Grid item xs={12} md={4}>
+                <Grid item size={{ xs: 12, md: 4 }}>
                   <Box
                     sx={{
                       display: "flex",
@@ -106,23 +106,24 @@ const Team = () => {
                     />
                   </Box>
                 </Grid>
-                <Grid item xs={12} md={8}>
+                <Grid item size={{ xs: 12, md: 8 }}>
                   <Typography variant="h4" sx={{ fontWeight: "bold", mb: 2 }}>
-                    Our Founders
+                    Our Founders : The Parakh Brothers
                   </Typography>
-                  <Typography variant="h6" sx={{ mb: 2, opacity: 0.9 }}>
-                    Shree Vallabh Das Ji Parakh , Shree Ranchod Das Ji Parakh
-                    and their brothers
-                  </Typography>
+
                   <Typography
                     variant="body1"
                     sx={{ lineHeight: 1.8, opacity: 0.9 }}
                   >
-                    The visionary founders who established Parakh Brothers in
-                    1965, laying the foundation of trust and quality that
-                    continues to guide us today. Their dedication to serving
-                    customers with integrity and providing quality products has
-                    been the cornerstone of our success for over 60 years.
+                    Founded in 1965 by six brothers — Late Shree Vithaldas Ji ,
+                    Late Shree Vallabhdas Ji , Late Shree Ranchoddas Ji , Shree
+                    Govinddas Ji Parakh, Late Shree Balkrishnadas Ji , and Late
+                    Shree Narendrakumaji Parakh — whose vision, integrity, and
+                    commitment to quality laid the foundation of Parakh
+                    Brothers. What began as a single enterprise built on trust
+                    and service has, over the decades, expanded into three major
+                    firms spanning multiple hardware verticals, carrying forward
+                    the same enduring values that shaped its beginning.
                   </Typography>
                   <Box sx={{ mt: 3 }}>
                     <Chip
@@ -148,13 +149,10 @@ const Team = () => {
         </Box>
 
         {/* Current Team */}
-        <Grid container spacing={{ xs: 2, md: 3, sm: 4 }} alignItems="stretch">
+        <Grid container spacing={{ xs: 2, md: 3, sm: 4 }}>
           {teamMembers.map((member, index) => (
             <Grid
-              item
-              xs={12} // Mobile: 1 card per row (full width)
-              sm={6} // Tablet: 2 cards per row (half width)
-              md={4} // Laptop/Desktop: 3 cards per row (one-third width)
+              size={{ xs: 12, sm: 6, md: 4 }} // Mobile: 1 card per row (full width), Tablet: 2 cards per row (half width), Laptop/Desktop: 3 cards per row (one-third width)
               key={index}
               sx={{ display: "flex" }}
             >
@@ -223,7 +221,7 @@ const Team = () => {
                         height: "auto",
                         maxHeight: { xs: 140, lg: 180 },
                         borderRadius: 2,
-                        objectFit: "contain",
+                        objectFit: "fill",
                         border: "3px solid white",
                         boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
                       }}

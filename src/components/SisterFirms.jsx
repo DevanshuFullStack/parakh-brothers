@@ -52,7 +52,7 @@ const SisterFirms = () => {
 
         <Grid container spacing={4} sx={{ mb: 6 }}>
           {sisterFirms.map((firm, index) => (
-            <Grid item xs={12} md={6} key={index}>
+            <Grid item size={{ xs: 12, md: 6 }} key={index}>
               <Card
                 sx={{
                   height: '100%',
@@ -122,7 +122,7 @@ const SisterFirms = () => {
                     </Typography>
                     <Grid container spacing={1}>
                       {firm.services.map((service, serviceIndex) => (
-                        <Grid item xs={12} sm={6} key={serviceIndex}>
+                        <Grid item size={{ xs: 12, sm: 6 }} key={serviceIndex}>
                           <Box
                             sx={{
                               display: 'flex',

@@ -26,13 +26,29 @@ const Navbar = () => {
   const navigate = useNavigate()
 
   const menuItems = [
-    { text: 'Home', path: '/', isAnchor: false },
+    { text: 'Home', path: '/', isAnchor: false, isHome: true },
     { text: 'About Us', path: '#about', isAnchor: true },
     { text: 'Our Team', path: '#team', isAnchor: true },
     { text: 'Product Lines', path: '/products', isAnchor: false },
     { text: 'Awards', path: '#awards', isAnchor: true },
+    { text: 'Sister Firms', path: '#sister-firms', isAnchor: true },
     { text: 'Contact Us', path: '/contact', isAnchor: false },
   ]
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  const handleHomeClick = () => {
+    if (location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }, 100)
+    } else {
+      scrollToTop()
+    }
+  }
 
   const handleAnchorClick = (anchorPath) => {
     if (location.pathname !== '/') {
@@ -66,11 +82,13 @@ const Navbar = () => {
         {menuItems.map((item) => (
           <ListItem key={item.text} disablePadding>
             <ListItemButton
-              component={item.isAnchor ? 'button' : Link}
-              to={item.isAnchor ? undefined : item.path}
+              component={item.isAnchor ? 'button' : (item.isHome ? 'button' : Link)}
+              to={item.isAnchor || item.isHome ? undefined : item.path}
               onClick={() => {
                 if (item.isAnchor) {
                   handleAnchorClick(item.path)
+                } else if (item.isHome) {
+                  handleHomeClick()
                 }
                 handleDrawerToggle()
               }}
@@ -94,7 +112,7 @@ const Navbar = () => {
     <>
       <AppBar position="sticky" sx={{ backgroundColor: 'white', color: 'black', boxShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
         <Toolbar>
-          <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: isMobile ? 1 : 0 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: isMobile ? 1 : 0, cursor: 'pointer' }} onClick={handleHomeClick}>
             <img
               src={logo}
               alt="Parakh Brothers Logo"
@@ -108,8 +126,6 @@ const Navbar = () => {
             />
             <Typography
               variant="h6"
-              component={Link}
-              to="/"
               sx={{
                 textDecoration: 'none',
                 color: 'inherit',
@@ -135,11 +151,13 @@ const Navbar = () => {
               {menuItems.map((item) => (
                 <Button
                   key={item.text}
-                  component={item.isAnchor ? 'button' : Link}
-                  to={item.isAnchor ? undefined : item.path}
+                  component={item.isAnchor ? 'button' : (item.isHome ? 'button' : Link)}
+                  to={item.isAnchor || item.isHome ? undefined : item.path}
                   onClick={() => {
                     if (item.isAnchor) {
                       handleAnchorClick(item.path)
+                    } else if (item.isHome) {
+                      handleHomeClick()
                     }
                   }}
                   sx={{

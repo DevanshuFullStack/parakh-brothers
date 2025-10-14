@@ -1,6 +1,64 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Box, Container, Typography, Grid, Card, CardContent, CardMedia } from '@mui/material'
 import { EmojiEvents, TrendingUp, Star, Business } from '@mui/icons-material'
+
+const CounterAnimation = ({ end, duration = 2000, suffix = '' }) => {
+  const [count, setCount] = useState(0)
+  const [isVisible, setIsVisible] = useState(false)
+  const counterRef = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    const currentRef = counterRef.current
+    if (currentRef) {
+      observer.observe(currentRef)
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef)
+      }
+    }
+  }, [isVisible])
+
+  useEffect(() => {
+    if (!isVisible) return
+
+    let startTime
+    const animate = (timestamp) => {
+      if (!startTime) startTime = timestamp
+      const progress = Math.min((timestamp - startTime) / duration, 1)
+      
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4)
+      setCount(Math.floor(easeOutQuart * end))
+
+      if (progress < 1) {
+        requestAnimationFrame(animate)
+      }
+    }
+
+    requestAnimationFrame(animate)
+  }, [isVisible, end, duration])
+
+  return (
+    <Typography 
+      ref={counterRef}
+      variant="h3" 
+      sx={{ fontWeight: 'bold', mb: 1 }}
+    >
+      {count}{suffix}
+    </Typography>
+  )
+}
 
 const Awards = () => {
   // Note: Add actual award images to assets/awards/ folder
@@ -59,14 +117,14 @@ const Awards = () => {
               lineHeight: 1.6,
             }}
           >
-            We have been winning national awards for sales from various companies since 1999 till date, 
+            We have been winning national awards for sales from Kansai Nerolac Paints since 1999 till date, 
             competing with big city dealers across the state through sheer hard work and customer goodwill
           </Typography>
         </Box>
 
         <Grid container spacing={4} sx={{ mb: 6 }}>
           {achievements.map((achievement, index) => (
-            <Grid item xs={12} sm={6} md={3} key={index}>
+            <Grid item size={{ xs: 12, sm: 6, md: 3 }} key={index}>
               <Card
                 sx={{
                   height: '100%',
@@ -147,29 +205,27 @@ const Awards = () => {
             Our Success Story
           </Typography>
           <Grid container spacing={4}>
-            <Grid item xs={12} md={4}>
-              <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 1 }}>
-                25+
-              </Typography>
+            <Grid item size={{ xs: 12, md: 4 }}>
+              <CounterAnimation end={20} suffix="+" duration={2500} />
               <Typography variant="h6">
                 Years of Awards
               </Typography>
             </Grid>
-            <Grid item xs={12} md={4}>
-              <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 1 }}>
-                50+
-              </Typography>
+            <Grid item size={{ xs: 12, md: 4 }}>
+              <CounterAnimation end={15} suffix="+" duration={2000} />
               <Typography variant="h6">
-                Awards & Recognitions
+                Years as part of Nerolac Core/Platinum Club
               </Typography>
             </Grid>
-            <Grid item xs={12} md={4}>
-              <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 1 }}>
-                #1
-              </Typography>
-              <Typography variant="h6">
-                In Regional Performance
-              </Typography>
+            <Grid item size={{ xs: 12, md: 4 }}>
+              <Box>
+                <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 1 }}>
+                  #1
+                </Typography>
+                <Typography variant="h6">
+                  In Regional Performance over the years
+                </Typography>
+              </Box>
             </Grid>
           </Grid>
           <Typography

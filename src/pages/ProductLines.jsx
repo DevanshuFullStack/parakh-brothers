@@ -213,7 +213,7 @@ const ProductLines = () => {
             {category.brands && (
               <Grid container spacing={3} sx={{ justifyContent: { xs: 'center', md: 'flex-start' } }}>
                 {category.brands.map((brand, index) => (
-                  <Grid item xs={12} sm={6} md={4} lg={3} xl={3} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
+                  <Grid item size={{ xs: 12, sm: 6, md: 4, lg: 3, xl: 3 }} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
                     <Slide
                       direction="up"
                       in={animationTriggered}
@@ -363,7 +363,7 @@ const ProductLines = () => {
             {category.products && (
               <Grid container spacing={3} sx={{ justifyContent: { xs: 'center', md: 'flex-start' } }}>
                 {category.products.map((product, index) => (
-                  <Grid item xs={12} sm={6} md={4} lg={3} xl={3} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
+                  <Grid item size={{ xs: 12, sm: 6, md: 4, lg: 3, xl: 3 }} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
                     <Slide
                       direction="up"
                       in={animationTriggered}

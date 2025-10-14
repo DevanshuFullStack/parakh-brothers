@@ -132,7 +132,7 @@ const AboutUs = () => {
               fontSize: { xs: '2rem', md: '3rem' },
             }}
           >
-            About Parakh Brothers
+            About us
           </Typography>
           <Typography
             variant="h6"
@@ -149,7 +149,7 @@ const AboutUs = () => {
 
         <Grid container spacing={3} sx={{ mb: 6, justifyContent: 'center' }}>
           {stats.map((stat, index) => (
-            <Grid item xs={12} sm={4} md={2} key={index}>
+            <Grid item size={{ xs: 6, sm: 4, md: 2 }} key={index}>
               <Slide direction="up" in={true} timeout={300 + index * 100}>
                 <Card
                   sx={{
@@ -284,7 +284,7 @@ const AboutUs = () => {
         </Grid>
 
         <Grid container spacing={6} alignItems="center">
-          <Grid item xs={12} md={6}>
+          <Grid item size={12}>
             <Typography
               variant="h4"
               sx={{
@@ -401,9 +401,7 @@ const AboutUs = () => {
               ].map((item, index) => (
                 <Grid 
                   item 
-                  xs={6} 
-                  sm={4} 
-                  md={2} 
+                  size={{ xs: 6, sm: 4, md: 2 }} 
                   key={index}
                   sx={{
                     display: 'flex',

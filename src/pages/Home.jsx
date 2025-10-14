@@ -21,7 +21,9 @@ const Home = () => {
       <Box id="awards">
         <Awards />
       </Box>
-      <SisterFirms />
+      <Box id="sister-firms">
+        <SisterFirms />
+      </Box>
     </Box>
   );
 };
