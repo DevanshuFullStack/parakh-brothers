@@ -118,8 +118,8 @@ Thank you!`
     {
       icon: <Email />,
       title: 'Email',
-      details: ['rajeshparikh3010@gmail.com'],
-      action: () => window.open('mailto:rajeshparikh3010@gmail.com'),
+      details: ['parakhbrothers524@gmail.com'],
+      action: () => window.open('mailto:parakhbrothers524@gmail.com'),
     },
     {
       icon: <Palette />,

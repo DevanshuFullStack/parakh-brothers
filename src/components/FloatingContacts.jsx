@@ -15,7 +15,7 @@ const FloatingContacts = () => {
     {
       icon: <EmailIcon />,
       label: 'Email',
-      action: () => window.open('mailto:rajeshparikh3010@gmail.com', '_blank'),
+      action: () => window.open('mailto:parakhbrothers524@gmail.com', '_blank'),
       color: '#1976d2',
     },
     {
